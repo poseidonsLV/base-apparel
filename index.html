@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Base Apparel coming soon page</title>
+  </head>
+  <body>
+    <div class="container-left">
+      <header id="header">
+        <div class="header-image-container">
+          <img class="header-logo" src="./images/logo.svg" alt="" />
+        </div>
+      </header>
+      <img class="person-img" src="./images/hero-mobile.jpg" alt="" />
+      <div class="container-left-middle">
+        <div class="container-left-text">
+          <h1>WE ' RE <span>COMING SOON</span></h1>
+          <p>
+            We're coming soon Hello fellow shoppers! We're currently building
+            our new fashion store. Add your email below to stay up-to-date with
+            announcements and our launch deals. Email Address
+          </p>
+          <form class="form-submit">
+            <img class="form-submit-err" src="./images/icon-error.svg" />
+            <input class="input" placeholder="Email Address" />
+            <span class="form-error-message"></span>
+            <button type="submit" class="btn">
+              <div class="btn-left-arrow"></div>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container-right">
+      <img src="./images/hero-desktop.jpg" alt="" />
+    </div>
+  </body>
+  <script>
+    const input = document.querySelector(".input");
+    const form = document.querySelector(".form-submit");
+    const errIcon = document.querySelector(".form-submit-err");
+    const errorMsgElement = document.querySelector(".form-error-message");
+    form.addEventListener("submit", submitInput);
+    function submitInput(e) {
+      e.preventDefault();
+      if (input.value.length < 7) {
+        errIcon.classList.add("active");
+        errorMsgElement.innerText = "Too short input";
+      } else {
+        if (input.value.includes("@")) {
+          errIcon.classList.remove("active");
+          errorMsgElement.innerText = "";
+        } else {
+          errIcon.classList.add("active");
+          errorMsgElement.innerText = "@ simbol required";
+        }
+      }
+    }
+  </script>
+</html>
